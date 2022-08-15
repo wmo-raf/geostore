@@ -71,7 +71,7 @@ yarn start
 - MONGODB_DBNAME => Geostore db name
 - MONGO_DB_PASSWORD => Geostore db password
 
-- RESTART_POLICY => Docker container restart policy. Can be `always` to restart the container automatically or `off` to disable restarts
+- RESTART_POLICY => Docker container restart policy. Can be `always` to restart the container automatically or `no` to disable restarts
 - PG_FEATURE_SERV_URL => Url to pgFeatureServ service
 - PG_FEATURE_SERV_BOUNDARIES_TABLE => table name for the boundaries table in pgFeatureServ
 
