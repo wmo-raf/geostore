@@ -1,0 +1,19 @@
+{
+  "mongodb": {
+    "host": "MONGODB_HOST",
+    "port": "MONGODB_PORT",
+    "database": "MONGODB_DBNAME",
+    "useUnifiedTopology": "MONGODB_USE_UNIFIED_TOPOLOGY"
+  },
+  "logger": {
+    "type": "LOGGER_TYPE",
+    "level": "LOGGER_LEVEL"
+  },
+  "service": {
+    "port": "PORT"
+  },
+  "pgFeatureServ": {
+    "url": "PG_FEATURE_SERV_URL",
+    "boundariesTable": "PG_FEATURE_SERV_BOUNDARIES_TABLE"
+  }
+}

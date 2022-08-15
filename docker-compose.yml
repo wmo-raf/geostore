@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  geostore_mongodb:
+    image: "mongo:4.2"
+    container_name: geostore_mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGODB_DBNAME}
+    volumes:
+      - "geostore_mongodb_data:/data/db"
+    restart: ${RESTART_POLICY}
+  geostore:
+    image: africahazardswatch.org/geostore
+    container_name: geostore
+    build: .
+    command: bash -c "/wait && yarn start"
+    environment:
+      - WAIT_HOSTS=geostore_mongodb:27017
+      - PORT=${PORT}
+      - MONGO_URI=mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@geostore_mongodb:27017/${MONGODB_DBNAME}?authSource=admin
+      - PG_FEATURE_SERV_URL=${PG_FEATURE_SERV_URL}
+      - PG_FEATURE_SERV_BOUNDARIES_TABLE=${PG_FEATURE_SERV_BOUNDARIES_TABLE}
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - geostore_mongodb
+
+volumes:
+  geostore_mongodb_data:

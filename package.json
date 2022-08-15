@@ -1,0 +1,73 @@
+{
+  "name": "geostore-api",
+  "version": "1.0.0",
+  "description": "GeoStore API",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_PATH=app/src node app/index.js",
+    "dev": "NODE_PATH=app/src nodemon app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmo-raf/geostore.git"
+  },
+  "keywords": [
+    "eahw",
+    "api",
+    "microservice",
+    "node",
+    "javascript",
+    "koa"
+  ],
+  "author": {
+    "name": "ICPAC",
+    "email": "developer@icpac.net",
+    "url": "http://icpac.net/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wmo-raf/geostore/issues"
+  },
+  "engines": {
+    "node": "~16"
+  },
+  "homepage": "https://github.com/wmo-raf/geostore#readme",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@turf/turf": "^6.5.0",
+    "arcgis-to-geojson-utils": "^1.0.1",
+    "axios": "^0.26.0",
+    "bunyan": "^1.8.15",
+    "config": "1.19.0",
+    "dotenv": "^16.0.0",
+    "geojsonhint": "1.2.0",
+    "jsonapi-serializer": "^3.6.5",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^8.0.8",
+    "koa-simple-healthcheck": "^0.0.1",
+    "koa-validate": "^1.0.7",
+    "md5": "2.1.0",
+    "mongoose": "^5.9.14",
+    "sleep": "^6.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-react": "^7.21.0",
+    "nodemon": "^2.0.19"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}

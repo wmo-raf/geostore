@@ -1,0 +1,14 @@
+{
+  "logger": {
+    "name": "hw-geostore-api",
+    "level": "info"
+  },
+  "service": {
+    "uri": ""
+  },
+  "mongodb": {
+    "database": "hw_geostore_db",
+    "host": "mymachine",
+    "port": 32780
+  }
+}
