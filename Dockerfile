@@ -1,10 +1,10 @@
-FROM node:16-bullseye
+FROM node:16-bullseye-slim
 
 ENV NAME geostore
 ENV USER microservice
 
 RUN apt-get update -y && apt-get upgrade -y && \
-    apt-get install -y bash git ssh python3 make
+    apt-get install -y bash build-essential python3 
 
 RUN addgroup $USER && useradd -ms /bin/bash $USER -g $USER
 RUN yarn global add bunyan

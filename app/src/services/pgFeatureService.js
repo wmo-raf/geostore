@@ -109,6 +109,7 @@ class PgFeatureService {
 
                     const geoData = {
                         info: {
+                            fid: result.properties.cartodb_id,
                             iso: iso.toUpperCase(),
                             name: result.properties.name_0,
                             gadm: "3.6",
@@ -177,6 +178,7 @@ class PgFeatureService {
 
                     const geoData = {
                         info: {
+                            fid: result.properties.cartodb_id,
                             iso: iso.toUpperCase(),
                             name: result.properties.name_1,
                             id1: parseInt(id1, 10),
@@ -254,6 +256,7 @@ class PgFeatureService {
 
                     const geoData = {
                         info: {
+                            fid: result.properties.cartodb_id,
                             iso: iso.toUpperCase(),
                             name: result.properties.name_2,
                             id1: parseInt(id1, 10),
