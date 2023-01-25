@@ -38,6 +38,7 @@
     "arcgis-to-geojson-utils": "^1.0.1",
     "axios": "^0.26.0",
     "bunyan": "^1.8.15",
+    "bunyan-format": "^0.2.1",
     "config": "1.19.0",
     "dotenv": "^16.0.0",
     "geojsonhint": "1.2.0",

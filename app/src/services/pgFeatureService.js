@@ -104,6 +104,8 @@ class PgFeatureService {
             .then((response) => {
                 const data = response.data;
 
+                console.log(data);
+
                 if (!!data.features.length) {
                     const result = data.features[0];
 
@@ -128,7 +130,7 @@ class PgFeatureService {
                 return null;
             })
             .catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 if (err.response && err.response.status === 404) {
                     const message = err.response.data || "Feature Not Found";
 
