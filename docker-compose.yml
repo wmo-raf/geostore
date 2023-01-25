@@ -29,3 +29,8 @@ services:
 
 volumes:
   geostore_mongodb_data:
+
+networks:
+    default:
+      name:  ${AHW_DOCKER_NETWORK}
+      external: true
