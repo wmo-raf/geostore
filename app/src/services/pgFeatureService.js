@@ -3,6 +3,7 @@ const logger = require("logger");
 const GeoStoreService = require("services/geoStoreService");
 const PgFeatureNotFound = require("errors/pgFeatureNotFound");
 const config = require("config");
+const logger = require("logger");
 
 const parseSimplifyGeom = (iso, id1, id2) => {
     const bigCountries = ["USA", "RUS", "CAN", "CHN", "BRA", "IDN"];
@@ -128,6 +129,7 @@ class PgFeatureService {
                 return null;
             })
             .catch((err) => {
+                logger.error(err)
                 if (err.response && err.response.status === 404) {
                     const message = err.response.data || "Feature Not Found";
 
