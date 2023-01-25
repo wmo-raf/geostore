@@ -18,12 +18,12 @@ services:
     command: bash -c "/wait && yarn start"
     environment:
       - WAIT_HOSTS=geostore_mongodb:27017
-      - PORT=${PORT}
+      - PORT=3000
       - MONGO_URI=mongodb://${MONGO_DB_USER}:${MONGO_DB_PASSWORD}@geostore_mongodb:27017/${MONGODB_DBNAME}?authSource=admin
       - PG_FEATURE_SERV_URL=${PG_FEATURE_SERV_URL}
       - PG_FEATURE_SERV_BOUNDARIES_TABLE=${PG_FEATURE_SERV_BOUNDARIES_TABLE}
     ports:
-      - "${PORT}:${PORT}"
+      - ${PORT}:3000
     depends_on:
       - geostore_mongodb
 
