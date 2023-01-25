@@ -3,7 +3,6 @@ const logger = require("logger");
 const GeoStoreService = require("services/geoStoreService");
 const PgFeatureNotFound = require("errors/pgFeatureNotFound");
 const config = require("config");
-const logger = require("logger");
 
 const parseSimplifyGeom = (iso, id1, id2) => {
     const bigCountries = ["USA", "RUS", "CAN", "CHN", "BRA", "IDN"];
