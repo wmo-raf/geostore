@@ -44,6 +44,25 @@ class GeoStoreRouter {
         ctx.body = GeoJSONSerializer.serialize(geoStore);
     }
 
+    static async getGeoStoreGeojsonById(ctx) {
+        ctx.assert(ctx.params.hash, 400, "Hash param not found");
+        logger.info(
+            "[GeoStoreRouterV2 - getGeoStoreById] Getting geostore by hash %s",
+            ctx.params.hash
+        );
+
+        let geoStore = await GeoStoreService.getGeostoreById(ctx.params.hash);
+        if (!geoStore) {
+            ctx.throw(404, "GeoStore not found");
+            return;
+        }
+        logger.debug("GeoStore found. Returning...");
+
+        const geostoreData = GeoJSONSerializer.serialize(geoStore);
+
+        ctx.body = geostoreData.data?.attributes?.geojson;
+    }
+
     static async getMultipleGeoStores(ctx) {
         ctx.assert(ctx.request.body.geostores, 400, "Geostores not found");
         logger.info(
@@ -318,6 +337,7 @@ class GeoStoreRouter {
 }
 
 router.get("/:hash", GeoStoreRouter.getGeoStoreById);
+router.get("/geojson/:hash", GeoStoreRouter.getGeoStoreGeojsonById);
 router.post("/", GeoStoreValidator.create, GeoStoreRouter.createGeoStore);
 router.post("/find-by-ids", GeoStoreRouter.getMultipleGeoStores);
 router.post("/area", GeoStoreValidator.create, GeoStoreRouter.getArea);
